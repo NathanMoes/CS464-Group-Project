@@ -5,7 +5,8 @@
   NOTE: this should be changed to an Async/Await function
   See pages 25 and 26 of Learning REACT textbook (O'Reilly 2nd Edition)
 */
-
+const functions = require('firebase-functions');
+const apiKey = functions.config().vite.live_coin_watch;
 /**
  * POST request to retrieve the LiveCoinWatch 'resource: /coin/single'
  */
@@ -21,7 +22,7 @@ const lcwSingleHistory = async (
         method: 'POST',
         headers: new Headers({
           'content-type': 'application/json',
-          'x-api-key': import.meta.env.VITE_COINWATCH_API_KEY,
+          'x-api-key': apiKey,
         }),
         body: JSON.stringify({
           currency: 'USD',
